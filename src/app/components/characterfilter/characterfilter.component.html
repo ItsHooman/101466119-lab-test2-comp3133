@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill" style="width: 250px; margin: 20px;">
+  <mat-label>Filter by House</mat-label>
+  <mat-select [(ngModel)]="selectedHouse" (selectionChange)="onHouseChange()">
+    <mat-option *ngFor="let house of houses" [value]="house">
+      {{ house }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

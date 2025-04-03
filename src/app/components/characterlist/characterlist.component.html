@@ -1,0 +1,21 @@
+<mat-form-field appearance="fill" style="width: 250px; margin: 20px;">
+  <mat-label>Filter by House</mat-label>
+  <mat-select [(ngModel)]="selectedHouse" (selectionChange)="onHouseChange()">
+    <mat-option value="">All</mat-option>
+    <mat-option *ngFor="let house of houses" [value]="house">
+      {{ house }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="character-grid">
+  <mat-card
+    *ngFor="let c of filteredCharacters"
+    class="mat-elevation-z4 character-card"
+    [routerLink]="['/character', c.name]"
+  >
+    <img mat-card-image [src]="c.image" />
+    <mat-card-title>{{ c.name }}</mat-card-title>
+    <mat-card-subtitle>{{ c.house }}</mat-card-subtitle>
+  </mat-card>
+</div>
